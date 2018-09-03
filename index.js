@@ -1,6 +1,6 @@
-const Blueduino = require('./Blueduino');
+const BLEPeripheral = require('./BLEPeripheral');
 
-var remote = new Blueduino({
+var remote = new BLEPeripheral({
     verbose: true
 });
 remote.on('ready', () => {
@@ -9,7 +9,7 @@ remote.on('ready', () => {
         const DATA = 'HELLO!';
         console.log('Sending: ' + DATA);
         remote.sendData(new Buffer(DATA));
-    }, 2000);
+    }, 5000);
 })
 remote.on('data', (data) => {
     console.log('data from remote: ' + data.toString());
